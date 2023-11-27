@@ -1,6 +1,6 @@
 # HTML-web-scraping-challenge : Analysis of Mars Data 
 
-## General Info
+### General Info
 
 This assignment first looks at Mars news extracted from a tutorial website (designed for web scraping purposes) in part_1_mars_news.ipynb utilizing BeautifulSoup and Browser to parse the site. In the following notebook, an analysis of real data is made, with over 1500 rows of data of Mars' listed here: 
   
