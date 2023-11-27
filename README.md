@@ -45,13 +45,13 @@ print(html)
 
 ```
 for a in articles:
-    # Grabbing all the title's
+    #Grabbing all the title's
     titles = a.find(class_='content_title').text.strip()
 
-    # Grabbing all the title preview's
+    #Grabbing all the title preview's
     preview_texts = a.find(class_='article_teaser_body').text.strip()
 
-    # Adding the findings inside our dictionary
+    #Adding the findings inside our dictionary
     mars_dict = {
     'title':titles,
     'preview':preview_texts
@@ -66,7 +66,7 @@ for a in articles:
 #Create an empty list
 `row_list = []`
 
-# Loop through the scraped data to create a list of rows
+### Loop through the scraped data to create a list of rows
 ```
 data = soup.find('tbody')
 
@@ -81,7 +81,7 @@ for row in data.find_all('tr',class_='data-row')[0:]:
     pressure = info_td[6].get_text()
 ```
 
-    # Add all column data into a new dictionary with respective columns
+    #Add all column data into a new dictionary with respective columns
    ```
   mars_diction = {
         'id': id,
@@ -97,7 +97,7 @@ for row in data.find_all('tr',class_='data-row')[0:]:
      row_list.append(mars_diction)
 ```
 
-# Change data types for data analysis
+#### Change data types for data analysis
 
 ```
 mars_pd['terrestrial_date'] = mars_pd['terrestrial_date'].astype('datetime64')
@@ -105,7 +105,7 @@ mars_pd[['sol','ls','month']] = mars_pd[['sol','ls','month']].astype('int64')
 mars_pd[['min_temp','pressure']] = mars_pd[['min_temp','pressure']].astype('float64')
 ```
 
-# Plot the average temperature by month
+#### Plot the average temperature by month
 
 ```
 avg_temp_by_month = mars_pd.groupby('month')['min_temp'].mean()
